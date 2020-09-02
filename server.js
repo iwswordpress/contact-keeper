@@ -1,8 +1,11 @@
 const express = require('express');
-// const connectDB = require('./config/db');
+const connectDB = require('./config/db');
 // const path = require('path');
 
 const app = express();
+
+// Connect Database
+connectDB();
 
 app.get('/', (req, res) => res.send('Hello World'));
 // Define Routes
@@ -12,9 +15,6 @@ app.use('/api/contacts', require('./routes/contacts'));
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
-
-// Connect Database
-// connectDB();
 
 // Init Middleware
 // app.use(express.json({ extended: false }));
